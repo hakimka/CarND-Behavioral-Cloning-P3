@@ -82,35 +82,35 @@ model = Sequential()
 model.add(Lambda(lambda x: x/255.0-0.5, input_shape =(160,320,3)))
 model.add(Cropping2D(cropping=((70,25),(0,0))))
 
-model.add(Convolution2D(32, 3, 3, activation='relu'))
-model.add(Convolution2D(32, 3, 3, activation='relu'))
+model.add(Convolution2D(24, 5, 5, activation='relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
-model.add(Dropout(0.25))
+
+model.add(Convolution2D(36, 5, 5, activation='relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+#model.add(Dropout(0.25))
 
 #2
-model.add(Convolution2D(64, 3, 3, activation='relu'))
-#model.add(MaxPooling2D(pool_size=(2, 2)))
-model.add(Dropout(0.25))
+model.add(Convolution2D(48, 5, 5, activation='relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
 
-#3
-model.add(Convolution2D(10, nb_conv, nb_conv))							
-model.add(MaxPooling2D(pool_size=(nb_pool, nb_pool)))
-model.add(Activation('relu'))
-model.add(Dropout(0.5))
-##4
-#model.add(Convolution2D(16, nb_conv, nb_conv))
-#model.add(MaxPooling2D(pool_size=(nb_pool, nb_pool)))
-#model.add(Activation('relu'))
+model.add(Convolution2D(64, 3, 3, activation='relu'))
+#model.add(Convolution2D(64, 3, 3, activation='relu'))
+model.add(Dropout(0.1))
+
 
 model.add(Flatten())
-model.add(Dense(64))
-model.add(Activation('relu'))
-model.add(Dropout(0.5))
-
-model.add(Dense(32))
+model.add(Dense(1164))
 model.add(Activation('relu'))
 
 
+model.add(Dense(100))
+model.add(Activation('relu'))
+
+model.add(Dense(50))
+model.add(Activation('relu'))
+
+model.add(Dense(10))
+model.add(Activation('relu'))
 model.add(Dense(1))
 
 
@@ -121,4 +121,4 @@ model.fit_generator(train_generator, samples_per_epoch= len(train_samples),
 
 #model.fit(X_train,y_train, validation_split=0.3, shuffle=True, nb_epoch=15)
 
-model.save('model.h5')
+model.save('model6.h5')
