@@ -9,7 +9,7 @@ This project includes a simulator to collect driving behavior of a user. Using K
 
 [//]: # (Image References)
 
-[image1]: ./images/DNNArch "Model Visualization"
+[image1]: ./images/DNNArch.jpg "Model Visualization"
 [image2]: ./examples/placeholder.png "Grayscaling"
 [image3]: ./examples/placeholder_small.png "Recovery Image"
 [image4]: ./examples/placeholder_small.png "Recovery Image"
