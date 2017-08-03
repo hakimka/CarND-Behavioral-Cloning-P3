@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>writeup_report</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1><strong>Behavioral Cloning</strong></h1>
+<hr />
+<p><strong>Behavioral Cloning Project</strong></p>
+<p>This project includes a simulator to collect driving behavior of a user. Using Karas I built a convolution network that leaned steering angles on a simulation track. The model got trained and validated on images and the angles collected during simulation. The highlights and details of the project are presented in this document. </p>
+<h2>Rubric Points</h2>
+<h3>Here I will consider the <a href="https://review.udacity.com/#!/rubrics/432/view">rubric points</a> individually and describe how I addressed each point in my implementation.</h3>
+<hr />
+<h3>Files Submitted &amp; Code Quality</h3>
+<h4>1. Submission includes all required files and can be used to run the simulator in autonomous mode</h4>
+<p>My project includes the following files:</p>
+<ul>
+<li>model.py containing the script to create and train the model </li>
+<li>drive.py for driving the car in autonomous mode</li>
+<li>model.h5 containing a trained convolution neural network </li>
+<li>writeup_report.md summarizing the results</li>
+</ul>
+<h4>2. Submission includes functional code</h4>
+<p>Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing 
+<code>sh
+python drive.py model.h5</code></p>
+<h4>3. Submission code is usable and readable</h4>
+<p>The model.py file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.</p>
+<h3>Model Architecture and Training Strategy</h3>
+<h4>1. An appropriate model architecture has been employed</h4>
+<p>My model consists of a 
+- Preprocessing layer where the pixels values on 3 channel are normalized with mean in 0. (line 69)
+- Preprocessing also crops the top part and bottom part of the input image (line 70)
+- Convolution layer #1: kernel 5x5 with 24 filters, activation 'relu', followed by max pooling with kernel 2x2. (lines 72-74)
+- Convolution layer #2:kernel 5x5 with 36 filters, activation 'relu', followed by max pooling with kernel 2x2.  (lines 75-77)
+- Convolution layer #3:kernel 5x5 with 48 filters, activation 'relu', followed by max pooling with kernel 2x2. (lines 78-80)
+- Convolution layer #3:kernel 3x3 with 64 filters, activation 'relu' (lines 81-82)
+- dropout 10% (line 83)
+- Fully connected layer #1 (flatten first) of 1164 nodes, followed by 'relu' activation. (lines 84-87)
+- Fully connected layer #2 of 100 nodes, followed by 'relu' activation. (lines 88-90)
+- Fully connected layer #3 of 50 nodes, followed by 'relu' activation. (lines 91-93)
+- Fully connected layer #4 of 10 nodes, followed by ' relu' activation. (lines 94-96)</p>
+<h2>- Fully connect final layer of 1 node (line 98) </h2>
+<h4>2. Attempts to reduce overfitting in the model</h4>
+<p>The model contains dropout layers in order to reduce overfitting (model.py lines 83). </p>
+<p>The model was trained and validated on different sections of data set to ensure that the model was not overfitting (code line 48-52). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.</p>
+<h4>3. Model parameter tuning</h4>
+<p>The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 101).</p>
+<h4>4. Appropriate training data</h4>
+<p>Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road. I also used flipping images (mirroring) to double the size of the data set.  
+</p>
+<p>For details about how I created the training data, see the next section. </p>
+<h3>Model Architecture and Training Strategy</h3>
+<h4>1. Solution Design Approach</h4>
+<p>The overall strategy for deriving a model architecture was to try something small experiment and see if the car drives on the tracks. </p>
+<p>My first step was to use a convolution neural network model similar to the AlexNet. 
+Before I chose the presented model, I tried several models. Reading the discussion on the forum section for the Behavior Cloning  thread, I noticed some people suggested simple 2-3 conv layer network following by fully connected layers. I started a simple 3 conv layer network, that did not seem to get me anywhere. I increased a number of layers and made but keept my filter low (under 10 on each layer). After reviewing lectures from udacity, I decided to use a network architecture used by NVidia team for self driving car. That got me futher, now my car was able to drive some distance on the track, but not all the way through. After I increased the kernel size on the first layers to 5x5, I got the desired result. </p>
+<p>None of the models (the successful or failed) exhibited over fitting. I never had to deal with growing accuracy on the training set and degrading on the validation..</p>
+<p>The biggest &quot;aha&quot; moment was to add the dropout of 10% from the convolutional layers to fully connected. Then the things started to work. </p>
+<p>At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.</p>
+<h4>2. Final Model Architecture</h4>
+<p>The final model architecture (model.py lines 73-98) consisted of a convolution neural network with the layers described in the previous section. </p>
+<p>Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)</p>
+<p><img src="./images/DNNArch.jpg" alt="alt text" title="Model Visualization" /></p>
+<h4>3. Creation of the Training Set &amp; Training Process</h4>
+<p>To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:</p>
+<p><img src="./images/centerImage.jpg" alt="alt text" title="Center of Lane" /></p>
+<p>I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to adjust steering wheel angle to get back to the center of the lane. An example image of the left recover looks like this: </p>
+<p><img src="./images/recoverLeft.jpg" alt="alt text" title="Recovery Left Image" /></p>
+<p>Then I repeated this process on track two in order to get more data points.</p>
+<p>To augment the data sat, I also flipped images along vertical center (mirror) and angles thinking that this would double up my data size. In addition to the flipping, I utilized left and right camera image by slightly adjusting angles of the steering wheel for this images (model.py lines 14-32). </p>
+<p>After the collection process, I had 5948 number of data points. I then preprocessed this data by normalizing and cropping images as described above.</p>
+<p>I finally randomly shuffled the data set and put 20% of the data into a validation set. </p>
+<p>I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 10 as evidenced by declining training error and growing validation set error.  I used an adam optimizer so that manually training the learning rate wasn't necessary.</p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
