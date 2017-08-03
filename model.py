@@ -3,7 +3,6 @@ import csv
 import numpy as np
 import sklearn
 
-
 def generator(samples, batch_size=32):
 	num_samples = len(samples)
 	while 1: # Loop forever so the generator never terminates
@@ -39,8 +38,6 @@ def generator(samples, batch_size=32):
 			#yield (X_train, y_train)            
 			yield sklearn.utils.shuffle(X_train, y_train)
 
-
-
 samples  = []
 with open('./data/driving_log.csv') as csvfile:
 	reader = csv.reader(csvfile)
@@ -50,20 +47,9 @@ with open('./data/driving_log.csv') as csvfile:
 		
 from sklearn.model_selection import train_test_split
 train_samples, validation_samples = train_test_split(samples, test_size=0.2)
-
-		
-		
-		
-		
-		
-		
-		
-		
 		
 train_generator = generator(train_samples, batch_size=32)
 validation_generator = generator(validation_samples, batch_size=32)
-
-
 	
 from keras.models import Sequential
 from keras.layers.core import Dense, Dropout, Activation, Flatten, Lambda
