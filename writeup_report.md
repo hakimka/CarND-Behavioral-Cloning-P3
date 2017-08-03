@@ -10,8 +10,8 @@ This project includes a simulator to collect driving behavior of a user. Using K
 [//]: # (Image References)
 
 [image1]: ./images/DNNArch.jpg "Model Visualization"
-[image2]: ./examples/placeholder.png "Grayscaling"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
+[image2]: ./images/centerImage.jpg "Center of Lane"
+[image3]: ./images/recoverLeft.jpg "Recovery Left Image"
 [image4]: ./examples/placeholder_small.png "Recovery Image"
 [image5]: ./examples/placeholder_small.png "Recovery Image"
 [image6]: ./examples/placeholder_small.png "Normal Image"
@@ -108,24 +108,19 @@ To capture good driving behavior, I first recorded two laps on track one using c
 
 ![alt text][image2]
 
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to .... These images show what a recovery looks like starting from ... :
+I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to adjust steering wheel angle to get back to the center of the lane. An example image of the left recover looks like this: 
 
 ![alt text][image3]
-![alt text][image4]
-![alt text][image5]
+
 
 Then I repeated this process on track two in order to get more data points.
 
-To augment the data sat, I also flipped images and angles thinking that this would ... For example, here is an image that has then been flipped:
-
-![alt text][image6]
-![alt text][image7]
-
-Etc ....
-
-After the collection process, I had X number of data points. I then preprocessed this data by ...
+To augment the data sat, I also flipped images along vertical center (mirror) and angles thinking that this would double up my data size. In addition to the flipping, I utilized left and right camera image by slightly adjusting angles of the steering wheel for this images (model.py lines 14-32). 
 
 
-I finally randomly shuffled the data set and put Y% of the data into a validation set. 
+After the collection process, I had 5948 number of data points. I then preprocessed this data by normalizing and cropping images as described above.
 
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was Z as evidenced by ... I used an adam optimizer so that manually training the learning rate wasn't necessary.
+
+I finally randomly shuffled the data set and put 20% of the data into a validation set. 
+
+I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 10 as evidenced by declining training error and growing validation set error.  I used an adam optimizer so that manually training the learning rate wasn't necessary.
