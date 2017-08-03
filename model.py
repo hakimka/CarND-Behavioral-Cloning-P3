@@ -79,38 +79,36 @@ nb_pool = 2
 
 model = Sequential()
 
+# pre processing - normalize and crop
 model.add(Lambda(lambda x: x/255.0-0.5, input_shape =(160,320,3)))
 model.add(Cropping2D(cropping=((70,25),(0,0))))
 
+# conv layer #1
 model.add(Convolution2D(24, 5, 5, activation='relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
-
+# conv layer #2
 model.add(Convolution2D(36, 5, 5, activation='relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
-#model.add(Dropout(0.25))
-
-#2
+# conv layer #3
 model.add(Convolution2D(48, 5, 5, activation='relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
-
+# conv layer #4
 model.add(Convolution2D(64, 3, 3, activation='relu'))
-#model.add(Convolution2D(64, 3, 3, activation='relu'))
 model.add(Dropout(0.1))
-
-
+#flatten and FC1
 model.add(Flatten())
 model.add(Dense(1164))
 model.add(Activation('relu'))
-
-
+#FC2
 model.add(Dense(100))
 model.add(Activation('relu'))
-
+#FC3
 model.add(Dense(50))
 model.add(Activation('relu'))
-
+#FC4
 model.add(Dense(10))
 model.add(Activation('relu'))
+#FC5 - output
 model.add(Dense(1))
 
 
