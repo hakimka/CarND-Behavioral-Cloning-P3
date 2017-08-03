@@ -1,5 +1,4 @@
-#Behavioral Cloning
-
+# Behavioral Cloning
 
 ---
 
@@ -47,7 +46,8 @@ The model.py file contains the code for training and saving the convolution neur
 ####1. An appropriate model architecture has been employed
 
 
-My model consists of a 
+My model consists of a  
+
 - Preprocessing layer where the pixels values on 3 channel are normalized with mean in 0. (line 69)
 - Preprocessing also crops the top part and bottom part of the input image (line 70)
 - Convolution layer #1: kernel 5x5 with 24 filters, activation 'relu', followed by max pooling with kernel 2x2. (lines 72-74)
